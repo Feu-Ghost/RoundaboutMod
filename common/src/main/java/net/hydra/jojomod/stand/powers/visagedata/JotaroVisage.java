@@ -1,16 +1,16 @@
-package net.hydra.jojomod.event.powers.visagedata;
+package net.hydra.jojomod.stand.powers.visagedata;
 
 import net.hydra.jojomod.entity.ModEntities;
 import net.hydra.jojomod.entity.visages.JojoNPC;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
 
-public class DIOVisage extends VisageData {
-    public DIOVisage(Player self) {
+public class JotaroVisage extends VisageData {
+    public JotaroVisage(Player self) {
         super(self);
     }
     public VisageData generateVisageData(Player entity){
-        return new DIOVisage(entity);
+        return new JotaroVisage(entity);
     }
     @Override
     public JojoNPC getModelNPC(Player pl){

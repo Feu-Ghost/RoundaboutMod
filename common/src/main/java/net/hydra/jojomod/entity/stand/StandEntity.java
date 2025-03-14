@@ -1,15 +1,11 @@
 package net.hydra.jojomod.entity.stand;
 
-import net.hydra.jojomod.Roundabout;
 import net.hydra.jojomod.client.ClientUtil;
 import net.hydra.jojomod.event.index.OffsetIndex;
-import net.hydra.jojomod.event.powers.DamageHandler;
-import net.hydra.jojomod.event.powers.ModDamageTypes;
-import net.hydra.jojomod.event.powers.StandUser;
-import net.hydra.jojomod.event.powers.TimeStop;
+import net.hydra.jojomod.stand.powers.DamageHandler;
+import net.hydra.jojomod.stand.powers.api.StandUser;
 import net.hydra.jojomod.mixin.WorldTickClient;
 import net.hydra.jojomod.mixin.WorldTickServer;
-import net.hydra.jojomod.util.ConfigManager;
 import net.hydra.jojomod.util.MainUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -20,7 +16,6 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -602,7 +597,7 @@ public abstract class StandEntity extends Mob{
      * When this is called, sets the User's owned stand to this one. Both the Stand and the User store
      * each other, and this is for setting the User's storage.
      *
-     * @see net.hydra.jojomod.event.powers.StandUser#roundabout$setStand
+     * @see StandUser#roundabout$setStand
      */
     public boolean startStandRiding(LivingEntity entity, boolean force) {
         ((StandUser) entity).roundabout$setStand(this);

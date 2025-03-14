@@ -1,10 +1,8 @@
 package net.hydra.jojomod.entity.visages.mobs;
 
-import com.google.common.collect.ImmutableList;
-import net.hydra.jojomod.Roundabout;
 import net.hydra.jojomod.entity.visages.PlayerLikeModel;
-import net.hydra.jojomod.event.powers.StandPowers;
-import net.hydra.jojomod.event.powers.stand.PowersStarPlatinum;
+import net.hydra.jojomod.stand.powers.StandPowers;
+import net.hydra.jojomod.stand.powers.stand.PowersStarPlatinum;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;

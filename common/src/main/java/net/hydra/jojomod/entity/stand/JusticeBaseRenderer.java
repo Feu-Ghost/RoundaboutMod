@@ -2,15 +2,11 @@ package net.hydra.jojomod.entity.stand;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.hydra.jojomod.Roundabout;
-import net.hydra.jojomod.entity.client.ModEntityRendererClient;
-import net.hydra.jojomod.event.powers.StandPowers;
-import net.hydra.jojomod.event.powers.StandUser;
-import net.hydra.jojomod.util.ClientConfig;
+import net.hydra.jojomod.stand.powers.StandPowers;
+import net.hydra.jojomod.stand.powers.api.StandUser;
 import net.hydra.jojomod.util.ConfigManager;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.model.geom.ModelPart;
-import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -19,8 +15,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import org.jetbrains.annotations.Nullable;
-
-import javax.swing.text.html.parser.Entity;
 
 public class JusticeBaseRenderer extends StandRenderer<JusticeEntity> {
     public JusticeBaseRenderer(EntityRendererProvider.Context context, StandModel<JusticeEntity> entityModel, float f) {

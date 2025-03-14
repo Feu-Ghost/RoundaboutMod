@@ -2,7 +2,7 @@ package net.hydra.jojomod.mixin.fabric;
 
 import com.mojang.authlib.GameProfile;
 import net.hydra.jojomod.entity.stand.StandEntity;
-import net.hydra.jojomod.event.powers.StandUser;
+import net.hydra.jojomod.stand.powers.api.StandUser;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;

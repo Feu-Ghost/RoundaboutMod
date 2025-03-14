@@ -1,11 +1,9 @@
 package net.hydra.jojomod.mixin;
 
-import net.hydra.jojomod.Roundabout;
-import net.hydra.jojomod.access.IAbstractFurnaceMenu;
 import net.hydra.jojomod.client.StandIcons;
 import net.hydra.jojomod.event.index.PacketDataIndex;
-import net.hydra.jojomod.event.powers.StandPowers;
-import net.hydra.jojomod.event.powers.StandUser;
+import net.hydra.jojomod.stand.powers.StandPowers;
+import net.hydra.jojomod.stand.powers.api.StandUser;
 import net.hydra.jojomod.networking.ModPacketHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;

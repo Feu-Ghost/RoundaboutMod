@@ -1,6 +1,6 @@
 package net.hydra.jojomod.item;
 
-import net.hydra.jojomod.event.powers.visagedata.VisageData;
+import net.hydra.jojomod.stand.powers.visagedata.VisageData;
 import net.minecraft.world.item.Item;
 
 public class MaskItem extends Item {

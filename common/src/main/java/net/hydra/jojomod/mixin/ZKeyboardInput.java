@@ -1,7 +1,7 @@
 package net.hydra.jojomod.mixin;
 
 import net.hydra.jojomod.client.KeyboardPilotInput;
-import net.hydra.jojomod.event.powers.StandUser;
+import net.hydra.jojomod.stand.powers.api.StandUser;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Options;
 import net.minecraft.client.player.Input;

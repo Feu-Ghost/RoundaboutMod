@@ -13,11 +13,10 @@ import net.hydra.jojomod.client.StandIcons;
 import net.hydra.jojomod.entity.stand.JusticeEntity;
 import net.hydra.jojomod.event.index.PacketDataIndex;
 import net.hydra.jojomod.event.index.ShapeShifts;
-import net.hydra.jojomod.event.powers.StandPowers;
-import net.hydra.jojomod.event.powers.StandUser;
-import net.hydra.jojomod.event.powers.stand.PowersJustice;
+import net.hydra.jojomod.stand.powers.StandPowers;
+import net.hydra.jojomod.stand.powers.api.StandUser;
+import net.hydra.jojomod.stand.powers.stand.PowersJustice;
 import net.hydra.jojomod.networking.ModPacketHandler;
-import net.minecraft.ChatFormatting;
 import net.minecraft.client.GameNarrator;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
@@ -28,7 +27,6 @@ import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.monster.WitherSkeleton;
 import net.minecraft.world.entity.player.Player;
 
 public class JusticeMobSwitcherScreen extends Screen {
@@ -44,8 +42,9 @@ public class JusticeMobSwitcherScreen extends Screen {
     private static final int ALL_SLOTS_WIDTH = MobIcon.VALUES.length * 31 - 5;
     private static final int ALL_SLOTS2_WIDTH = JusticeMobSwitcherScreen.MobIcon.VALUES2.length * 31 - 5;
     private static final Component SELECT_KEY = Component.translatable("justice.morph.select_next",
-            KeyInputRegistry.abilityOneKey.getTranslatedKeyMessage(),
-            KeyInputRegistry.abilityTwoKey.getTranslatedKeyMessage());
+            KeyInputRegistry.SLOT_KEYS.get(0).getTranslatedKeyMessage(),
+            KeyInputRegistry.SLOT_KEYS.get(1).getTranslatedKeyMessage());
+
     private final JusticeMobSwitcherScreen.MobIcon previousHovered;
     private JusticeMobSwitcherScreen.MobIcon currentlyHovered;
     private int firstMouseX;
@@ -191,7 +190,7 @@ public class JusticeMobSwitcherScreen extends Screen {
     }
     private boolean checkToClose() {
         if (minecraft != null) {
-            if (!sameKeyOneX(KeyInputRegistry.abilityOneKey, this.minecraft.options)) {
+            if (!sameKeyOneX(KeyInputRegistry.SLOT_KEYS.get(0), this.minecraft.options)) {
                 zHeld = false;
             } else {
                 if (!zHeld) {
@@ -200,7 +199,7 @@ public class JusticeMobSwitcherScreen extends Screen {
                     zHeld = true;
                 }
             }
-            if (sameKeyOneX(KeyInputRegistry.abilityTwoKey, this.minecraft.options)) {
+            if (sameKeyOneX(KeyInputRegistry.SLOT_KEYS.get(1), this.minecraft.options)) {
                 this.switchToHoveredGameMode();
                 this.minecraft.setScreen(null);
                 return true;

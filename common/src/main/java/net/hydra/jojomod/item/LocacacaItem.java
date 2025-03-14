@@ -1,7 +1,7 @@
 package net.hydra.jojomod.item;
 
 import net.hydra.jojomod.event.index.LocacacaCurseIndex;
-import net.hydra.jojomod.event.powers.StandUser;
+import net.hydra.jojomod.stand.powers.api.StandUser;
 import net.hydra.jojomod.sound.ModSounds;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;

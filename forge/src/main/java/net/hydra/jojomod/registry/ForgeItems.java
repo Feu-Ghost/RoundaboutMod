@@ -1,13 +1,13 @@
 package net.hydra.jojomod.registry;
 
 import net.hydra.jojomod.Roundabout;
-import net.hydra.jojomod.event.powers.stand.PowersJustice;
-import net.hydra.jojomod.event.powers.stand.PowersStarPlatinum;
-import net.hydra.jojomod.event.powers.stand.PowersTheWorld;
-import net.hydra.jojomod.event.powers.stand.presets.PowersMagiciansRed;
-import net.hydra.jojomod.event.powers.visagedata.DIOVisage;
-import net.hydra.jojomod.event.powers.visagedata.JotaroVisage;
-import net.hydra.jojomod.event.powers.visagedata.VisageData;
+import net.hydra.jojomod.stand.powers.stand.PowersJustice;
+import net.hydra.jojomod.stand.powers.stand.PowersStarPlatinum;
+import net.hydra.jojomod.stand.powers.stand.PowersTheWorld;
+import net.hydra.jojomod.stand.powers.stand.presets.PowersMagiciansRed;
+import net.hydra.jojomod.stand.powers.visagedata.DIOVisage;
+import net.hydra.jojomod.stand.powers.visagedata.JotaroVisage;
+import net.hydra.jojomod.stand.powers.visagedata.VisageData;
 import net.hydra.jojomod.item.*;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.*;

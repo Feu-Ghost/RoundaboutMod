@@ -4,6 +4,8 @@ import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.KeyMapping;
 import org.lwjgl.glfw.GLFW;
 
+import java.util.*;
+
 public class KeyInputRegistry {
     /**This is where all keybinds in the mod are registered.
      * Note that forge and fabric also register the keys so they can be
@@ -26,27 +28,15 @@ public class KeyInputRegistry {
             KeyInputRegistry.KEY_CATEGORY_JOJO
     );
 
-    public static  KeyMapping abilityOneKey = new KeyMapping(
-            KeyInputRegistry.KEY_ABILITY_1,
-            InputConstants.KEY_Z,
-            KeyInputRegistry.KEY_CATEGORY_JOJO
+    /** Sequential order of slot keys 1-4 (inclusive).
+     * Remember: these are zero sequenced. The first key is index 0 and the last is index 3. */
+    public static final List<KeyMapping> SLOT_KEYS = Arrays.asList(
+            new KeyMapping(KEY_ABILITY_1, InputConstants.KEY_Z, KEY_CATEGORY_JOJO),
+            new KeyMapping(KEY_ABILITY_2, InputConstants.KEY_X, KEY_CATEGORY_JOJO),
+            new KeyMapping(KEY_ABILITY_3, InputConstants.KEY_C, KEY_CATEGORY_JOJO),
+            new KeyMapping(KEY_ABILITY_4, InputConstants.KEY_V, KEY_CATEGORY_JOJO)
     );
 
-    public static final KeyMapping abilityTwoKey = new KeyMapping(
-            KeyInputRegistry.KEY_ABILITY_2,
-            InputConstants.KEY_X,
-            KeyInputRegistry.KEY_CATEGORY_JOJO
-    );
-    public static final KeyMapping abilityThreeKey = new KeyMapping(
-            KeyInputRegistry.KEY_ABILITY_3,
-            InputConstants.KEY_C,
-            KeyInputRegistry.KEY_CATEGORY_JOJO
-    );
-    public static KeyMapping abilityFourKey = new KeyMapping(
-            KeyInputRegistry.KEY_ABILITY_4,
-            InputConstants.KEY_V,
-            KeyInputRegistry.KEY_CATEGORY_JOJO
-    );
     public static KeyMapping menuKey = new KeyMapping(
             KeyInputRegistry.KEY_JOJO_MENU,
             InputConstants.KEY_Y,

@@ -3,7 +3,7 @@ package net.hydra.jojomod.mixin;
 import net.hydra.jojomod.access.ICamera;
 import net.hydra.jojomod.access.IEntityAndData;
 import net.hydra.jojomod.client.ClientUtil;
-import net.hydra.jojomod.event.powers.TimeStop;
+import net.hydra.jojomod.stand.powers.api.TimeStop;
 import net.hydra.jojomod.util.MainUtil;
 import net.minecraft.client.Camera;
 import net.minecraft.core.Direction;

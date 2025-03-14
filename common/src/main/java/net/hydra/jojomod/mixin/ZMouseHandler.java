@@ -1,7 +1,7 @@
 package net.hydra.jojomod.mixin;
 
 import com.mojang.blaze3d.Blaze3D;
-import net.hydra.jojomod.event.powers.StandUser;
+import net.hydra.jojomod.stand.powers.api.StandUser;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.MouseHandler;
 import net.minecraft.util.SmoothDouble;

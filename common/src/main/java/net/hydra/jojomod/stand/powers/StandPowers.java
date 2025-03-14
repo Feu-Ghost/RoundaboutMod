@@ -1,20 +1,20 @@
-package net.hydra.jojomod.event.powers;
+package net.hydra.jojomod.stand.powers;
 
 import com.google.common.collect.Lists;
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.hydra.jojomod.Roundabout;
 import net.hydra.jojomod.access.IPlayerEntity;
 import net.hydra.jojomod.client.ClientNetworking;
 import net.hydra.jojomod.client.KeyInputRegistry;
 import net.hydra.jojomod.client.KeyboardPilotInput;
 import net.hydra.jojomod.client.StandIcons;
-import net.hydra.jojomod.entity.stand.JusticeEntity;
 import net.hydra.jojomod.entity.stand.StandEntity;
-import net.hydra.jojomod.entity.stand.StarPlatinumEntity;
 import net.hydra.jojomod.event.AbilityIconInstance;
 import net.hydra.jojomod.event.ModGamerules;
 import net.hydra.jojomod.event.index.*;
-import net.hydra.jojomod.event.powers.stand.presets.TWAndSPSharedPowers;
+import net.hydra.jojomod.stand.powers.api.StandUser;
+import net.hydra.jojomod.stand.powers.api.StandUserClient;
+import net.hydra.jojomod.stand.powers.api.TimeStop;
+import net.hydra.jojomod.stand.powers.stand.presets.TWAndSPSharedPowers;
 import net.hydra.jojomod.item.MaxStandDiscItem;
 import net.hydra.jojomod.item.ModItems;
 import net.hydra.jojomod.item.StandDiscItem;
@@ -26,7 +26,6 @@ import net.minecraft.client.Options;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -35,7 +34,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
@@ -49,11 +47,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.context.DirectionalPlaceContext;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.block.IceBlock;
-import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.*;
 import org.jetbrains.annotations.Nullable;
@@ -524,9 +520,11 @@ public class StandPowers {
 
     int squareHeight = 24;
     int squareWidth = 24;
+
     public void setSkillIcon(GuiGraphics context, int x, int y, int slot, ResourceLocation rl, byte CDI){
         setSkillIcon(context,x,y,slot,rl,CDI,false);
     }
+
     public void setSkillIcon(GuiGraphics context, int x, int y, int slot, ResourceLocation rl, byte CDI, boolean locked){
         CooldownInstance cd = null;
         if (CDI >= 0 && !StandCooldowns.isEmpty() && StandCooldowns.size() >= CDI){
@@ -544,26 +542,25 @@ public class StandPowers {
             context.blit(StandIcons.SQUARE_ICON,x-3,y-3,0, 0, squareWidth, squareHeight, squareWidth, squareHeight);
             Font renderer = Minecraft.getInstance().font;
             if (slot==4){
-                Component special4Key = KeyInputRegistry.abilityFourKey.getTranslatedKeyMessage();
+                Component special4Key = KeyInputRegistry.SLOT_KEYS.get(3).getTranslatedKeyMessage();
                 special4Key = fixKey(special4Key);
                 context.drawString(renderer, special4Key,x-1,y+11,0xffffff,true);
             }
             else if (slot==3){
-                Component special3Key = KeyInputRegistry.abilityThreeKey.getTranslatedKeyMessage();
+                Component special3Key = KeyInputRegistry.SLOT_KEYS.get(2).getTranslatedKeyMessage();
                 special3Key = fixKey(special3Key);
                 context.drawString(renderer, special3Key,x-1,y+11,0xffffff,true);
             }
             else if (slot==2){
-                Component special2Key = KeyInputRegistry.abilityTwoKey.getTranslatedKeyMessage();
+                Component special2Key = KeyInputRegistry.SLOT_KEYS.get(1).getTranslatedKeyMessage();
                 special2Key = fixKey(special2Key);
                 context.drawString(renderer, special2Key,x-1,y+11,0xffffff,true);
             }
             else if (slot==1){
-                Component special1Key = KeyInputRegistry.abilityOneKey.getTranslatedKeyMessage();
+                Component special1Key = KeyInputRegistry.SLOT_KEYS.get(0).getTranslatedKeyMessage();
                 special1Key = fixKey(special1Key);
                 context.drawString(renderer, special1Key,x-1,y+11,0xffffff,true);
             }
-            Component special1Key = KeyInputRegistry.abilityOneKey.getTranslatedKeyMessage();
         }
 
 

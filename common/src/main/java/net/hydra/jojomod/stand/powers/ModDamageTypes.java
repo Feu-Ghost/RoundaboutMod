@@ -1,4 +1,4 @@
-package net.hydra.jojomod.event.powers;
+package net.hydra.jojomod.stand.powers;
 
 import net.hydra.jojomod.Roundabout;
 import net.minecraft.core.registries.Registries;

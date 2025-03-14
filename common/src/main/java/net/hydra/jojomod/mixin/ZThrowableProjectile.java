@@ -2,7 +2,7 @@ package net.hydra.jojomod.mixin;
 
 import net.hydra.jojomod.access.IProjectileAccess;
 import net.hydra.jojomod.entity.TimeMovingProjectile;
-import net.hydra.jojomod.event.powers.TimeStop;
+import net.hydra.jojomod.stand.powers.api.TimeStop;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;

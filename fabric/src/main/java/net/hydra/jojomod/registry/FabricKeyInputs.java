@@ -19,12 +19,9 @@ public class FabricKeyInputs {
     //registers the keys
     public static void register(){
         KeyBindingHelper.registerKeyBinding(KeyInputRegistry.summonKey);
-        KeyBindingHelper.registerKeyBinding(KeyInputRegistry.abilityOneKey);
 
-        KeyBindingHelper.registerKeyBinding(KeyInputRegistry.abilityTwoKey);
-        KeyBindingHelper.registerKeyBinding(KeyInputRegistry.abilityThreeKey);
-
-        KeyBindingHelper.registerKeyBinding(KeyInputRegistry.abilityFourKey);
+        for (KeyMapping k : KeyInputRegistry.SLOT_KEYS)
+        { KeyBindingHelper.registerKeyBinding(k); }
 
         KeyBindingHelper.registerKeyBinding(KeyInputRegistry.menuKey);
         

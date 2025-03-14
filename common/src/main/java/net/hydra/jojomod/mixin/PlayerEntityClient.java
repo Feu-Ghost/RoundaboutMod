@@ -2,9 +2,9 @@ package net.hydra.jojomod.mixin;
 
 
 import com.mojang.authlib.GameProfile;
-import net.hydra.jojomod.event.powers.StandUser;
-import net.hydra.jojomod.event.powers.StandUserClientPlayer;
-import net.hydra.jojomod.event.powers.TimeStop;
+import net.hydra.jojomod.stand.powers.api.StandUser;
+import net.hydra.jojomod.stand.powers.api.StandUserClientPlayer;
+import net.hydra.jojomod.stand.powers.api.TimeStop;
 import net.hydra.jojomod.networking.ModPacketHandler;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.multiplayer.ClientPacketListener;

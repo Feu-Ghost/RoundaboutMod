@@ -1,17 +1,19 @@
-package net.hydra.jojomod.event.powers;
+package net.hydra.jojomod.stand.powers;
 
 public class CooldownInstance {
     public int time;
     public int maxTime;
     private boolean frozen;
 
-    public CooldownInstance(){
+    public CooldownInstance()
+    {
         this.time = -1;
         this.maxTime = -1;
         this.frozen = false;
     }
 
-    public CooldownInstance(int time, int maxTime){
+    public CooldownInstance(int time, int maxTime)
+    {
         this.time = time;
         this.maxTime = maxTime;
     }
@@ -20,7 +22,6 @@ public class CooldownInstance {
     {
         this.frozen = value;
     }
-
     public boolean isFrozen()
     {
         return this.frozen;

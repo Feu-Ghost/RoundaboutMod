@@ -1,4 +1,4 @@
-package net.hydra.jojomod.event.powers;
+package net.hydra.jojomod.stand.powers.api;
 
 
 public interface StandUserClient {

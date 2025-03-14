@@ -1,11 +1,9 @@
 package net.hydra.jojomod.mixin;
 
 import net.hydra.jojomod.event.index.PowerIndex;
-import net.hydra.jojomod.event.powers.StandUser;
-import net.hydra.jojomod.event.powers.TimeStop;
+import net.hydra.jojomod.stand.powers.api.StandUser;
+import net.hydra.jojomod.stand.powers.api.TimeStop;
 import net.hydra.jojomod.item.GasolineCanItem;
-import net.hydra.jojomod.item.KnifeItem;
-import net.hydra.jojomod.item.MatchItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.ItemInHandRenderer;

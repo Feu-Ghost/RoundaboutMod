@@ -1,8 +1,6 @@
 package net.hydra.jojomod.block;
 
-import net.hydra.jojomod.Roundabout;
 import net.hydra.jojomod.entity.projectile.MatchEntity;
-import net.hydra.jojomod.event.powers.ModDamageTypes;
 import net.hydra.jojomod.util.MainUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

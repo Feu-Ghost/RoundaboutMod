@@ -2,7 +2,7 @@ package net.hydra.jojomod.mixin;
 
 import net.hydra.jojomod.access.IClientLevelData;
 import net.hydra.jojomod.client.ClientNetworking;
-import net.hydra.jojomod.event.powers.TimeStop;
+import net.hydra.jojomod.stand.powers.api.TimeStop;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;

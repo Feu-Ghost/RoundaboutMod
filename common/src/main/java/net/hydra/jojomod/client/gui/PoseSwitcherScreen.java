@@ -136,7 +136,7 @@ public class PoseSwitcherScreen extends Screen {
     }
     private boolean checkToClose() {
         if (minecraft != null) {
-            if (sameKeyOneX(KeyInputRegistry.abilityTwoKey, this.minecraft.options)) {
+            if (sameKeyOneX(KeyInputRegistry.SLOT_KEYS.get(1), this.minecraft.options)) {
                 this.switchToHoveredGameMode();
                 this.minecraft.setScreen(null);
                 return true;

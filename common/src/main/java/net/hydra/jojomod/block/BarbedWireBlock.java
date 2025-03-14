@@ -1,14 +1,11 @@
 package net.hydra.jojomod.block;
 
-import net.hydra.jojomod.Roundabout;
 import net.hydra.jojomod.event.index.PacketDataIndex;
-import net.hydra.jojomod.event.powers.ModDamageTypes;
+import net.hydra.jojomod.stand.powers.ModDamageTypes;
 import net.hydra.jojomod.networking.ModPacketHandler;
 import net.hydra.jojomod.util.MainUtil;
-import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -25,13 +22,10 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.Map;
 
 public class BarbedWireBlock extends RotatedPillarBlock
         implements SimpleWaterloggedBlock {

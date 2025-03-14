@@ -1,11 +1,9 @@
 package net.hydra.jojomod.mixin;
 
-import net.hydra.jojomod.event.powers.StandUser;
-import net.minecraft.server.level.ServerLevel;
+import net.hydra.jojomod.stand.powers.api.StandUser;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.AbstractFish;
 import net.minecraft.world.entity.animal.AbstractSchoolingFish;
-import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

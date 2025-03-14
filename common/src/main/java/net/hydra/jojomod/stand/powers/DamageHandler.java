@@ -1,4 +1,4 @@
-package net.hydra.jojomod.event.powers;
+package net.hydra.jojomod.stand.powers;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.Mth;

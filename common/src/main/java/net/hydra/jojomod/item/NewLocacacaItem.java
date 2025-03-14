@@ -2,9 +2,9 @@ package net.hydra.jojomod.item;
 
 import com.google.common.collect.Lists;
 import net.hydra.jojomod.event.index.LocacacaCurseIndex;
-import net.hydra.jojomod.event.powers.ModDamageTypes;
-import net.hydra.jojomod.event.powers.StandUser;
-import net.hydra.jojomod.event.powers.TimeStop;
+import net.hydra.jojomod.stand.powers.ModDamageTypes;
+import net.hydra.jojomod.stand.powers.api.StandUser;
+import net.hydra.jojomod.stand.powers.api.TimeStop;
 import net.hydra.jojomod.sound.ModSounds;
 import net.hydra.jojomod.util.MainUtil;
 import net.minecraft.core.particles.ItemParticleOption;

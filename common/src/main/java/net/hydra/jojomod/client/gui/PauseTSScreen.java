@@ -1,7 +1,7 @@
 package net.hydra.jojomod.client.gui;
 
 import com.mojang.realmsclient.RealmsMainScreen;
-import net.hydra.jojomod.event.powers.TimeStop;
+import net.hydra.jojomod.stand.powers.api.TimeStop;
 import net.minecraft.SharedConstants;
 import net.minecraft.Util;
 import net.minecraft.client.gui.GuiGraphics;

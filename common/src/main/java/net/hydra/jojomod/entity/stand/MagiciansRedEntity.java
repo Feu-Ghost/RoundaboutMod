@@ -1,7 +1,5 @@
 package net.hydra.jojomod.entity.stand;
 
-import net.hydra.jojomod.entity.ModEntities;
-import net.hydra.jojomod.event.powers.StandUser;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;

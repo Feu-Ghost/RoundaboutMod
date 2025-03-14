@@ -1,7 +1,7 @@
 package net.hydra.jojomod.mixin;
 
 import net.hydra.jojomod.entity.stand.StandEntity;
-import net.hydra.jojomod.event.powers.StandUser;
+import net.hydra.jojomod.stand.powers.api.StandUser;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;

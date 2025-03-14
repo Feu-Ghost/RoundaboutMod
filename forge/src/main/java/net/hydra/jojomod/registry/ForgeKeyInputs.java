@@ -17,10 +17,10 @@ public final class ForgeKeyInputs {
     @SubscribeEvent
     public static void onKeyRegister(RegisterKeyMappingsEvent event) {
          event.register(KeyInputRegistry.summonKey);
-         event.register(KeyInputRegistry.abilityOneKey);
-         event.register(KeyInputRegistry.abilityTwoKey);
-         event.register(KeyInputRegistry.abilityThreeKey);
-         event.register(KeyInputRegistry.abilityFourKey);
+
+         for (KeyMapping k : KeyInputRegistry.SLOT_KEYS)
+             event.register(k);
+
          event.register(KeyInputRegistry.menuKey);
          event.register(KeyInputRegistry.guardKey);
          event.register(KeyInputRegistry.switchRow);
