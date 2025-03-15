@@ -81,52 +81,8 @@ public abstract class AbstractStandPower implements StandPower {
             context.blit(StandIcons.SQUARE_ICON,x-3,y-3,0, 0, SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE);
             Font renderer = Minecraft.getInstance().font;
 
-            switch (slotIndex)
-            {
-                case 4:
-                    Component special4Key = KeyInputRegistry.SLOT_KEYS.get(3).getTranslatedKeyMessage();
-                    special4Key = fixKey(special4Key);
-                    context.drawString(renderer, special4Key,x-1,y+11,0xffffff,true);
-                    break;
-                case 3:
-                    Component special3Key = KeyInputRegistry.SLOT_KEYS.get(2).getTranslatedKeyMessage();
-                    special3Key = fixKey(special3Key);
-                    context.drawString(renderer, special3Key,x-1,y+11,0xffffff,true);
-                    break;
-                case 2:
-                    Component special2Key = KeyInputRegistry.SLOT_KEYS.get(1).getTranslatedKeyMessage();
-                    special2Key = fixKey(special2Key);
-                    context.drawString(renderer, special2Key,x-1,y+11,0xffffff,true);
-                    break;
-                case 1:
-                    Component special1Key = KeyInputRegistry.SLOT_KEYS.get(0).getTranslatedKeyMessage();
-                    special1Key = fixKey(special1Key);
-                    context.drawString(renderer, special1Key,x-1,y+11,0xffffff,true);
-                    break;
-                default:
-                    Roundabout.LOGGER.warn("Attempted to draw StandPower icon but slotIndex was not in range 1-4 (inclusive)");
-            }
-
-            if (slotIndex==4){
-                Component special4Key = KeyInputRegistry.SLOT_KEYS.get(3).getTranslatedKeyMessage();
-                special4Key = fixKey(special4Key);
-                context.drawString(renderer, special4Key,x-1,y+11,0xffffff,true);
-            }
-            else if (slotIndex==3){
-                Component special3Key = KeyInputRegistry.SLOT_KEYS.get(2).getTranslatedKeyMessage();
-                special3Key = fixKey(special3Key);
-                context.drawString(renderer, special3Key,x-1,y+11,0xffffff,true);
-            }
-            else if (slotIndex==2){
-                Component special2Key = KeyInputRegistry.SLOT_KEYS.get(1).getTranslatedKeyMessage();
-                special2Key = fixKey(special2Key);
-                context.drawString(renderer, special2Key,x-1,y+11,0xffffff,true);
-            }
-            else if (slotIndex==1){
-                Component special1Key = KeyInputRegistry.SLOT_KEYS.get(0).getTranslatedKeyMessage();
-                special1Key = fixKey(special1Key);
-                context.drawString(renderer, special1Key,x-1,y+11,0xffffff,true);
-            }
+            Component specialKey = fixKey(KeyInputRegistry.SLOT_KEYS.get(slotIndex-1).getTranslatedKeyMessage());
+            context.drawString(renderer, specialKey, x-1, y+11, 0xffffff, true);
         }
 
 
