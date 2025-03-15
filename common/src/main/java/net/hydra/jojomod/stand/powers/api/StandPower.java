@@ -2,6 +2,8 @@ package net.hydra.jojomod.stand.powers.api;
 
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 /** Blueprint for all StandPowers (besides AbstractStandPower) */
 public interface StandPower {
@@ -30,5 +32,6 @@ public interface StandPower {
     LivingEntity roundabout$getUserEntity();
 
     /** Draws the stand power with its icon */
+    @OnlyIn(Dist.CLIENT)
     void roundabout$draw(GuiGraphics context);
 }

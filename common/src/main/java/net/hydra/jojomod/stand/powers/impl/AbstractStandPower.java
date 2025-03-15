@@ -13,6 +13,8 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 
 public abstract class AbstractStandPower implements StandPower {
@@ -86,6 +88,7 @@ public abstract class AbstractStandPower implements StandPower {
     @Override public abstract void roundabout$onInputEnd();
 
     @Override
+    @OnlyIn(Dist.CLIENT)
     public void roundabout$draw(GuiGraphics context) {
         int x = roundabout$slotIndex*25;
         int y = 4;
