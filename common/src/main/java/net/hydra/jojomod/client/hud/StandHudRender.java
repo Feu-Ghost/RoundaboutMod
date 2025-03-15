@@ -30,7 +30,7 @@ public class StandHudRender {
                                       float flashAlpha, float otherFlashAlpha) {
         if (playerEntity != null) {
             int x = 0;
-            int y = 0;
+            int y = 5;
 
             int width = scaledWidth;
             int height = scaledHeight;
@@ -42,7 +42,6 @@ public class StandHudRender {
             int iconWidth = 18;
             x = (int) (-20-guiSize+animated);
             //x = (int) (-20);
-            y = 5;
             Minecraft mc = Minecraft.getInstance();
             float tickDelta = mc.getDeltaFrameTime();
 
