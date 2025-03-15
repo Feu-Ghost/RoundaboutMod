@@ -13,13 +13,13 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 
 public abstract class AbstractStandPower implements StandPower {
     /** Reference this Cooldown Instance to change cooldowns for this specific power. */
     private final CooldownInstance roundabout$cooldown = new CooldownInstance();
+
+    private final String roundabout$powerName;
 
     /** Where the power will be on the HUD and what keybind will be mapped to it.
      * Ranges from 1-4 (inclusive). */
@@ -30,11 +30,13 @@ public abstract class AbstractStandPower implements StandPower {
     private boolean roundabout$isLocked;
 
     /** Reference this Cooldown Instance to change cooldowns for this specific power. */
-    public CooldownInstance getCooldown()
-    { return this.roundabout$cooldown; }
+    public CooldownInstance getCooldown() { return this.roundabout$cooldown; }
 
-    public int getSlotIndex()
-    { return this.roundabout$slotIndex; }
+    @Override
+    public int roundabout$getSlotIndex() { return this.roundabout$slotIndex; }
+
+    @Override
+    public String roundabout$getName() { return this.roundabout$powerName; }
 
     @Override
     public boolean roundabout$getLocked() { return this.roundabout$isLocked; }
@@ -46,7 +48,7 @@ public abstract class AbstractStandPower implements StandPower {
     @Override
     public LivingEntity roundabout$getUserEntity() { return this.roundabout$standUser; }
 
-    public AbstractStandPower(int slotIndex, @NotNull ResourceLocation icon, @NotNull LivingEntity standUser)
+    public AbstractStandPower(@NotNull String displayName, int slotIndex, @NotNull ResourceLocation icon, @NotNull LivingEntity standUser)
     {
         assert (slotIndex >= 1 && slotIndex <= 4) : "Failed to create new AbstractStandPower with reason \"slotIndex was not in range 1-4 (inclusive)\"";
 
@@ -54,6 +56,7 @@ public abstract class AbstractStandPower implements StandPower {
         this.roundabout$slotIndex = slotIndex;
         this.roundabout$standUser = standUser;
         this.roundabout$isLocked = true;
+        this.roundabout$powerName = displayName;
     }
 
     private static Component fixKey(Component textIn)
@@ -77,22 +80,32 @@ public abstract class AbstractStandPower implements StandPower {
 
     @Override
     public boolean roundabout$isAttackInept()
-    { return this.roundabout$standUser.isUsingItem() || ((StandUser)this.roundabout$standUser).roundabout$isDazed() || (((TimeStop)this.roundabout$standUser.level()).CanTimeStopEntity(this.roundabout$standUser)); }
+    { return false; }//return this.roundabout$standUser.isUsingItem() || ((StandUser)this.roundabout$standUser).roundabout$isDazed() || (((TimeStop)this.roundabout$standUser.level()).CanTimeStopEntity(this.roundabout$standUser)); }
 
     @Override
     public boolean roundabout$isAttackIneptVisually()
-    { return this.roundabout$getUser().roundabout$isDazed() || (((TimeStop)this.roundabout$standUser.level()).CanTimeStopEntity(this.roundabout$standUser)); }
+    { return false; }//return this.roundabout$getUser().roundabout$isDazed() || (((TimeStop)this.roundabout$standUser.level()).CanTimeStopEntity(this.roundabout$standUser)); }
 
     @Override public abstract void roundabout$tick();
     @Override public abstract void roundabout$onInputBegin();
     @Override public abstract void roundabout$onInputEnd();
 
     @Override
-    @OnlyIn(Dist.CLIENT)
-    public void roundabout$draw(GuiGraphics context) {
-        int x = roundabout$slotIndex*25;
-        int y = 4;
+    public void roundabout$drawOnHud(GuiGraphics context) {
+        int x = (roundabout$slotIndex*25)-20;
 
+        roundabout$drawWithPosition(context, x, 4);
+    }
+
+    @Override
+    public void roundabout$drawOnHud(GuiGraphics context, int xOffset) {
+        int x = ((roundabout$slotIndex*25)-20)+xOffset;
+
+        roundabout$drawWithPosition(context, x, 4);
+    }
+
+    @Override
+    public void roundabout$drawWithPosition(GuiGraphics context, int x, int y) {
         if (roundabout$isLocked){
             context.blit(StandIcons.LOCKED_SQUARE_ICON,x-3,y-3,0, 0, SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE);
         } else {

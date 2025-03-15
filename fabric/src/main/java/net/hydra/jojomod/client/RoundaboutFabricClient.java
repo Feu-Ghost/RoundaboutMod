@@ -3,16 +3,15 @@ package net.hydra.jojomod.client;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
-import net.fabricmc.fabric.mixin.object.builder.client.ModelPredicateProviderRegistryAccessor;
+import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.hydra.jojomod.Roundabout;
-import net.hydra.jojomod.access.IPermaCasting;
 import net.hydra.jojomod.block.ModBlocks;
-import net.hydra.jojomod.item.ModItems;
 import net.hydra.jojomod.networking.FabricPacketManager;
 import net.hydra.jojomod.particles.FabricParticlesClient;
 import net.hydra.jojomod.registry.FabricEntityClient;
 import net.hydra.jojomod.registry.FabricItems;
 import net.hydra.jojomod.registry.FabricKeyInputs;
+import net.hydra.jojomod.stand.powers.impl.AbstractStandPower;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.item.ItemProperties;
@@ -37,5 +36,26 @@ public class RoundaboutFabricClient implements ClientModInitializer {
         ClientPlayConnectionEvents.JOIN.register((clientPlayNetworkHandler, packetSender, minecraftClient) -> ClientNetworking.sendHandshake());
         ItemProperties.register(FabricItems.HARPOON, new ResourceLocation(Roundabout.MOD_ID,"throwing"), (itemStack, clientLevel, livingEntity, i) -> livingEntity != null && livingEntity.isUsingItem() && livingEntity.getUseItem() == itemStack ? 1.0f : 0.0f);
         Player pl = Minecraft.getInstance().player;
+
+        AbstractStandPower power = new AbstractStandPower("Test Power", 1, Roundabout.location("textures/gui/icons/locked_2.png"), null) {
+            @Override
+            public void roundabout$tick() {
+
+            }
+
+            @Override
+            public void roundabout$onInputBegin() {
+
+            }
+
+            @Override
+            public void roundabout$onInputEnd() {
+
+            }
+        };
+
+        HudRenderCallback.EVENT.register((context, tickDelta)->{
+            power.roundabout$drawOnHud(context);
+        });
     }
 }

@@ -2,12 +2,13 @@ package net.hydra.jojomod.stand.powers.api;
 
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 /** Blueprint for all StandPowers (besides AbstractStandPower) */
 public interface StandPower {
     int SQUARE_SIZE = 24;
+
+    /** Gets the display name of the power. */
+    String roundabout$getName();
 
     /** Ticks the specific power. */
     void roundabout$tick();
@@ -26,12 +27,17 @@ public interface StandPower {
     void roundabout$setLocked(boolean value);
     boolean roundabout$getLocked();
 
+    int roundabout$getSlotIndex();
+
     /** Get the StandUser that has this power. */
     StandUser roundabout$getUser();
     /** Get the owner of the stand that has this power */
     LivingEntity roundabout$getUserEntity();
 
-    /** Draws the stand power with its icon */
-    @OnlyIn(Dist.CLIENT)
-    void roundabout$draw(GuiGraphics context);
+    /** Draws the stand power with its icon at a position implicitly guessed by the slotIndex */
+    void roundabout$drawOnHud(GuiGraphics context);
+    /** Draws the stand power with its icon at a position implicitly guessed by the slotIndex with an x offset for sliding in/out */
+    void roundabout$drawOnHud(GuiGraphics context, int xOffset);
+    /** Draws the stand power with its icon at a position */
+    void roundabout$drawWithPosition(GuiGraphics context, int x, int y);
 }
